@@ -1,0 +1,33 @@
+name: Publish to MCP Registry
+
+# Runs on GitHub's servers (not on the local machine), so it works even where
+# registry.modelcontextprotocol.io is unreachable. Start it manually: Actions -> Run workflow.
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write   # GitHub OIDC login to the registry (namespace io.github.parvizrahayan/*)
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install mcp-publisher
+        run: |
+          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" | tar xz mcp-publisher
+          ./mcp-publisher --help | head -5
+
+      - name: Login (GitHub OIDC)
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish server.json
+        run: ./mcp-publisher publish
+
+      - name: Verify listing
+        run: |
+          sleep 5
+          NAME=$(python3 -c "import json;print(json.load(open('server.json'))['name'])")
+          curl -fsS "https://registry.modelcontextprotocol.io/v0.1/servers?search=$NAME" | head -c 800

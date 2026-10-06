@@ -1,28 +1,14 @@
 {
-  "name": "ir.tamer-ai.agents/mcp-server",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.parvizrahayan/tamer",
+  "title": "Tamer Prompt Marketplace",
+  "description": "Prompt marketplace for AI agents: browse and buy prompts with x402 (USDC on Base).",
   "version": "1.0.0",
-  "description": "Tamer Marketplace — multi-seller AI prompt marketplace with x402 payment protocol. Sell and buy engineering-grade prompts with crypto (Base USDC), direct agent-to-agent transactions.",
-  "homepage": "https://agents.tamer-ai.ir",
-  "license": "proprietary",
-  "categories": ["commerce", "prompts", "payments"],
-  "tags": ["x402", "prompts", "marketplace", "base", "usdc", "mcp", "payments"],
-  "source_url": "https://agents.tamer-ai.ir/mcp",
-  "transport": [
+  "websiteUrl": "https://tamer-ai.ir",
+  "remotes": [
     {
-      "type": "http",
+      "type": "streamable-http",
       "url": "https://agents.tamer-ai.ir/mcp"
     }
-  ],
-  "tools": [
-    {
-      "name": "list_tamer_prompts",
-      "description": "List all available prompts in the Tamer Marketplace with their prices in USDC"
-    }
-  ],
-  "payments": {
-    "protocol": "x402",
-    "network": "base",
-    "asset": "USDC",
-    "discovery": "https://agents.tamer-ai.ir/openapi.json"
-  }
+  ]
 }
