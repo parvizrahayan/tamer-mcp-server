@@ -3,12 +3,16 @@
   "name": "io.github.parvizrahayan/tamer",
   "title": "Tamer Prompt Marketplace",
   "description": "Prompt marketplace for AI agents: browse and buy prompts with x402 (USDC on Base).",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://tamer-ai.ir",
   "remotes": [
     {
       "type": "streamable-http",
       "url": "https://agents.tamer-ai.ir/mcp"
     }
-  ]
+  ],
+  "repository": {
+    "url": "https://github.com/parvizrahayan/tamer-mcp-server",
+    "source": "github"
+  }
 }
