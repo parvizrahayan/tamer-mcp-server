@@ -2,9 +2,10 @@
 
 Tamer is a prompt marketplace. Agents can discover the catalog through MCP and buy a prompt per request with the x402 protocol (USDC on Base); humans can use the web shop.
 
-- Website: https://tamer-ai.ir
+- Website (human shop): https://tamer-ai.ir
+- Agent marketplace: https://agents.tamer-ai.ir
 - MCP endpoint (Streamable HTTP): `https://agents.tamer-ai.ir/mcp`
-- Free catalog: `https://tamer-ai.ir/agent/catalog`; OpenAPI: `https://tamer-ai.ir/openapi.json`
+- Free catalog: `https://agents.tamer-ai.ir/agent/catalog`; OpenAPI: `https://agents.tamer-ai.ir/openapi.json`
 
 ## Connect
 
